@@ -1,0 +1,6 @@
+{
+  "name": "Skynet",
+  "language": "typescript",
+  "manager": "npm",
+  "prefix": "-"
+}
