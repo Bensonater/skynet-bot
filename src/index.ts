@@ -23,9 +23,9 @@ export const dataSource = new DataSource({
 });
 
 (async () => {
+  await dataSource.initialize();
   client.prefix = config.prefix || client.prefix;
   await registerCommands(client, "../commands");
   await registerEvents(client, "../events");
   await client.login(process.env.SKYNET_TOKEN);
-  await dataSource.initialize();
 })();
