@@ -14,7 +14,7 @@ export default class MessageEvent extends BaseEvent {
 
     if (message.content.startsWith(config.prefix)) {
       const [cmdName, ...cmdArgs] = message.content
-        .slice(client.prefix.length)
+        .slice(config.prefix.length)
         .trim()
         .split(/\s+/);
       const command = client.commands.get(cmdName);

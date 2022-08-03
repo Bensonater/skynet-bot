@@ -8,7 +8,7 @@ import { Collection, GatewayIntentBits, Guild } from "discord.js";
 import { DataSource } from "typeorm";
 import { GuildConfiguration } from "./typeorm/entities/GuildConfiguration";
 const client = new DiscordClient({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 export const dataSource = new DataSource({
@@ -35,8 +35,6 @@ export const dataSource = new DataSource({
 
 
   client.configs = configs;
-
-
 
 
   await registerCommands(client, "../commands");
