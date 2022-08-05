@@ -8,15 +8,21 @@ export default class RemindCommand extends BaseCommand {
   }
 
   async run(client: DiscordClient, message: Message, args: Array<string>) {
-    if (args.length === 0) {
+    if (!args.length) {
       message.channel.send(
         "You need to specify the time duration for the reminder."
       );
       return;
     }
+
     const duration = parseInt(args.shift()!);
     setTimeout(
-      () => message.channel.send("This is your reminder:\n" + args.join(" ")),
+      () =>
+        message.channel.send(
+          message.author.toString() +
+            " This is your reminder:\n" +
+            args.join(" ")
+        ),
       duration * 1000
     );
   }
