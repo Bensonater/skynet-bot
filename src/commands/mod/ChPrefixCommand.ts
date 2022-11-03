@@ -1,12 +1,12 @@
 import { Message } from "discord.js";
 import BaseCommand from "../../utils/structures/BaseCommand";
 import DiscordClient from "../../client/client";
-import { dataSource } from "../..";
+import { db } from "../..";
 import { GuildConfiguration } from "../../typeorm/entities/GuildConfiguration";
 
 export default class ChPrefixCommand extends BaseCommand {
   constructor(
-    private readonly guildConfigRepository = dataSource.getRepository(
+    private readonly guildConfigRepository = db.getRepository(
       GuildConfiguration
     )
   ) {

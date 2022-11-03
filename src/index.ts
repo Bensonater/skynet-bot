@@ -15,7 +15,7 @@ const client = new DiscordClient({
   ],
 });
 
-export const dataSource = new DataSource({
+export const db = new DataSource({
   type: "mysql",
   host: process.env.MYSQL_DB_HOST,
   port: 3306,
@@ -27,9 +27,9 @@ export const dataSource = new DataSource({
 });
 
 (async () => {
-  await dataSource.initialize();
+  await db.initialize();
 
-  const configRepo = dataSource.getRepository(GuildConfiguration);
+  const configRepo = db.getRepository(GuildConfiguration);
   const guildConfigs = await configRepo.find();
 
   const configs = new Collection<string, GuildConfiguration>();

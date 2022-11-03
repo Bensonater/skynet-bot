@@ -3,11 +3,11 @@ import { Guild } from "discord.js";
 import BaseEvent from "../utils/structures/BaseEvent";
 import DiscordClient from "../client/client";
 import { GuildConfiguration } from "../typeorm/entities/GuildConfiguration";
-import { dataSource } from "..";
+import { db } from "..";
 
 export default class GuildCreateEvent extends BaseEvent {
   constructor(
-    private readonly guildConfigRepository = dataSource.getRepository(
+    private readonly guildConfigRepository = db.getRepository(
       GuildConfiguration
     )
   ) {
